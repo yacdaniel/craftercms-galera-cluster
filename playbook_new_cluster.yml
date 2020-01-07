@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  become_method: sudo
+  gather_facts: yes
+  remote_user: vagrant
+
+  roles:
+    - craftercms
+    - new_cluster
+    - start_crafter

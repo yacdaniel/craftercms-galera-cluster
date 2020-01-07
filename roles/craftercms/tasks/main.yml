@@ -1,0 +1,26 @@
+---
+# tasks file for craftercms
+
+# - name: Create crafter user
+#   user:
+#     name: crafter
+#     generate_ssh_key: yes
+#     ssh_key_bits: 2048
+#     ssh_key_file: .ssh/id_rsa
+
+- name: Update hostname
+  hostname:
+    name: "{{ hostname }}"
+
+- name: Extract Crafter CMS bundle
+  unarchive:
+      src: /vagrant/bundles/{{ bundle_filename }}
+      dest: /opt
+      remote_src: yes
+      owner: vagrant
+      group: vagrant
+
+- name: Add studio-config-override 
+  template:
+    src: studio-config-override.yml.j2
+    dest: /opt/crafter/bin/apache-tomcat/shared/classes/crafter/studio/extension/studio-config-override.yaml

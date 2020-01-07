@@ -1,0 +1,7 @@
+---
+# tasks file for add_cluster
+
+- name: Add new cluster node environment variables
+  template: 
+    src: crafter-setenv.sh.j2
+    dest: /opt/crafter/bin/crafter-setenv.sh

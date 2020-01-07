@@ -1,0 +1,20 @@
+---
+# tasks file for start_arbiter
+
+- name: Create arbiter config directory
+  file:
+    path: /opt/crafter/bin/studio-arbiter/config
+    state: directory
+    owner: vagrant
+    group: vagrant
+
+- name: Add arbiter cluster environment variables
+  template: 
+    src: application.yaml.j2
+    dest: /opt/crafter/bin/studio-arbiter/config/application.yaml
+
+- name: Start authoring arbiter
+  shell: nohup java -jar studio-arbiter.jar &
+  become_user: vagrant
+  args:
+      chdir: /opt/crafter/bin/studio-arbiter

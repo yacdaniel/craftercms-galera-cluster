@@ -1,0 +1,12 @@
+---
+# tasks file for start_crafter
+
+- name: Start Up Crafter CMS
+  shell: nohup /opt/crafter/bin/startup.sh
+  become_user: vagrant
+
+- name: Wait for Crafter CMS start Up
+  wait_for:
+    port: 8080
+    delay: 60
+    timeout: 120

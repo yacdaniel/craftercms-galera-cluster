@@ -1,0 +1,9 @@
+# Studio Arbiter configuration
+galera-cluster:
+  parameters:
+    # Galera cluster name - value needs to be set to galera cluster name which arbiter needs to join
+    - --group=studio_galera_cluster
+    # Galera cluster address - value needs to be set to galera cluster address which arbiter needs to join
+    - --address=gcomm://{{ galera_cluster_ip }}
+    # Log file
+    - --log=studio-arbiter.log

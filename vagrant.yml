@@ -1,0 +1,12 @@
+vm_box: yacdaniel/ubuntu-base-craftercms 
+authoring_bundle_name: crafter-cms-authoring.tar.gz
+vm_authoring_name: studio_node
+vm_arbiter_name: arbiter_node
+vm_authoring_memory: 4096
+vm_authoring_cpus: 2
+vm_arbiter_memory: 512
+vm_arbiter_cpus: 1
+vm_authoring_cluster_ip: 192.168.5.10
+vm_authoring_node_ip: 192.168.5.11
+vm_authoring_arbiter_ip: 192.168.5.12
+vm_gui: false
